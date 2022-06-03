@@ -3,13 +3,27 @@
 
 <h2>HTML Exemplo - Cliente</h2>
 
-<form action="/helloBuscar">
+<form>
     <label>Nome: </label><br>
     <input type="text" id="fnameId" name="fname" placeholder="Nome..."><br><br>
-    <input type="submit" value="Submit">
+    <span id="resposta_span_id"></span><br><br>
+    <input type="button" value="Buscar" onclick="buscarCliente()">
 </form>
 
 <p>Frontend - Busca Cliente - Treinamento Vixteam 2022</p>
+
+<script type="text/javascript">
+    function buscarCliente() {
+        var nome = document.getElementById("fnameId").value
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("resposta_span_id").textContent = this.responseText;
+        }
+        xhttp.open("GET", "/helloBuscar?fname="+nome);
+        xhttp.send();
+    }
+</script>
 
 </body>
 </html>

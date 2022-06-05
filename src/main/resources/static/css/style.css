@@ -1,0 +1,49 @@
+html,body {
+margin: 0px;
+padding: 0px;
+border: 0px;
+left: 0px;
+top: 0px;
+}
+
+h2 { 
+text-align: center;
+font-size: 32px;
+font-family: 'Roboto', sans-serif;
+}
+
+form {
+    text-align: center;
+}
+
+fieldset {
+    margin: auto;
+    width: 100px;
+    height: 120px;
+}
+
+p {
+text-align: center;
+font-family: 'Roboto', sans-serif;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+input[type=text] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    width: 350px;
+}
+
+span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}

@@ -5,6 +5,13 @@ function buscarCliente() {
     xhttp.onload = function() {
         document.getElementById("resposta_span_id").textContent = this.responseText;
     }
+
+    if (this.responseText == "null") {
+
+    } else {
+
+    }
+
     xhttp.open("GET", "/helloBuscar?fname="+nome);
     xhttp.send();
 }

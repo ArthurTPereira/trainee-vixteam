@@ -15,6 +15,9 @@ public class Cliente {
     @Column(name = "cliente_nome",nullable = false)
     private String nome;
 
+    @Column(name = "cliente_mail", nullable = false)
+    private String email;
+
     public Cliente() {
 
     }
@@ -29,6 +32,14 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

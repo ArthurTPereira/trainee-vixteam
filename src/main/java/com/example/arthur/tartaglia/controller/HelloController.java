@@ -4,6 +4,7 @@ import com.example.arthur.tartaglia.repository.ClienteServiceImp;
 import com.example.arthur.tartaglia.model.Cliente;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
@@ -65,6 +66,16 @@ public class HelloController {
             return "Cliente removido com sucesso.";
         }
 
+        return "Cliente não encontrado.";
+    }
+
+    @GetMapping("/helloAlterar")
+    public String altera(@RequestParam String fname,
+                         @RequestParam String fmail) {
+
+        if (!clienteService.getClienteByNome(fname).isEmpty()){
+            return clienteService.alteraEmailCliente(fmail,fname);
+        }
         return "Cliente não encontrado.";
     }
 }

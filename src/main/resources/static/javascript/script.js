@@ -41,3 +41,16 @@ function removerCliente() {
     xhttp.open("GET", "/helloRemover?fname="+nome);
     xhttp.send();
 }
+
+function alterarCliente() {
+    var nome = document.getElementById("fnameIdAlterar").value
+    var mail = document.getElementById("fmailIdAlterar").value
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("resposta_span_id4").textContent = this.responseText;
+    }
+
+    xhttp.open("GET", "/helloAlterar?fname="+nome+"&fmail="+mail);
+    xhttp.send();
+}

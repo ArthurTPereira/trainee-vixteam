@@ -2,6 +2,8 @@ package com.example.arthur.tartaglia.repository;
 
 import com.example.arthur.tartaglia.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,4 +38,10 @@ public class ClienteServiceImp implements ClienteService {
     public void removeCliente(String nome) {
         clienteRepositorio.delete(clienteRepositorio.findByNome(nome).get(0));
     }
+
+    @Override
+    public String alteraEmailCliente(String mail, String nome) {
+        return  (clienteRepositorio.updateEmailByNome(mail,nome)+" resultado alterado.");
+    }
+
 }

@@ -1,4 +1,6 @@
-package com.example.arthur.tartaglia;
+package com.example.arthur.tartaglia.repository;
+
+import com.example.arthur.tartaglia.model.Cliente;
 
 import java.util.List;
 

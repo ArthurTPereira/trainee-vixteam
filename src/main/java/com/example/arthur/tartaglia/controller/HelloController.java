@@ -1,5 +1,7 @@
-package com.example.arthur.tartaglia;
+package com.example.arthur.tartaglia.controller;
 
+import com.example.arthur.tartaglia.repository.ClienteServiceImp;
+import com.example.arthur.tartaglia.model.Cliente;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class HelloWorldRest {
+public class HelloController {
 
     @Autowired
     private ClienteServiceImp clienteService;

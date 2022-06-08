@@ -1,5 +1,6 @@
-package com.example.arthur.tartaglia;
+package com.example.arthur.tartaglia.repository;
 
+import com.example.arthur.tartaglia.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

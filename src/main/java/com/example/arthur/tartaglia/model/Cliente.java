@@ -1,4 +1,4 @@
-package com.example.arthur.tartaglia;
+package com.example.arthur.tartaglia.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

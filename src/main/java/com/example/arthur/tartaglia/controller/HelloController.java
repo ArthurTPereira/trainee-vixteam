@@ -57,4 +57,14 @@ public class HelloController {
         clienteService.cadastraCliente(clienteCadastro);
         return "Cliente cadastrado com sucesso!";
     }
+
+    @GetMapping("/helloRemover")
+    public String remover(@RequestParam String fname) {
+        if (!clienteService.getClienteByNome(fname).isEmpty()) {
+            clienteService.removeCliente(fname);
+            return "Cliente removido com sucesso.";
+        }
+
+        return "Cliente não encontrado.";
+    }
 }

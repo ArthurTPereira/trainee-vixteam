@@ -29,3 +29,15 @@ function cadastrarCliente() {
     xhttp.send();
     
 }
+
+function removerCliente() {
+    var nome = document.getElementById("fnameIdRemover").value
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("resposta_span_id3").textContent = this.responseText;
+    }
+
+    xhttp.open("GET", "/helloRemover?fname="+nome);
+    xhttp.send();
+}

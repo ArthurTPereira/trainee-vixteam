@@ -36,6 +36,20 @@ background: linear-gradient(135deg, rgba(255,183,0,0.5438550420168067) 34%, rgba
     left: 20px;
 }
 
+#hRemove {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-shadow: 2px 4px 9px #545454;
+    margin: auto;
+    position: absolute;
+    top: 1px;
+    right: 30px;
+}
+
 
 fieldset {
     margin: auto;
@@ -110,8 +124,32 @@ span {
     border-radius: 4px;
 }
 
+#buttonRemover {
+    position: absolute;
+    left: 120px;
+    top: 280px;
+    padding: 10px 20px;
+    background: #fab700;
+    border: none;
+    border-radius: 4px;
+    font-weight: 900;
+    box-shadow: 6px 6px 3px 1px rgba(0,0,0,0.74);
+}
+
+#buttonRemover:hover {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
 #cadastro {
     position: absolute;
     top: 50px;
     left: 20px;
+}
+
+#remover {
+    position: absolute;
+    right: 20px;
+    top: 50px;
 }

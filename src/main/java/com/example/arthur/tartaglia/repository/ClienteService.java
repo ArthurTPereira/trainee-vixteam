@@ -9,4 +9,5 @@ public interface ClienteService {
     List<Cliente> getClienteByNome(String nome);
     List<Cliente> getClienteByEmail(String email);
     void cadastraCliente(Cliente cliente);
+    void removeCliente(String nome);
 }

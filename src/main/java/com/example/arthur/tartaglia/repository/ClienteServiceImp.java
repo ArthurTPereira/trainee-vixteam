@@ -1,7 +1,6 @@
 package com.example.arthur.tartaglia.repository;
 
 import com.example.arthur.tartaglia.model.Cliente;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +30,10 @@ public class ClienteServiceImp implements ClienteService {
     @Override
     public void cadastraCliente(Cliente cliente) {
         clienteRepositorio.save(cliente);
+    }
+
+    @Override
+    public void removeCliente(String nome) {
+        clienteRepositorio.delete(clienteRepositorio.findByNome(nome).get(0));
     }
 }

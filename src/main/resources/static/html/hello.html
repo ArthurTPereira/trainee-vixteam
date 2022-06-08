@@ -10,8 +10,7 @@
 
 <link rel="stylesheet" href="../css/style.css">
 
-<h2 id="hBusca">Busca cliente</h2>
-<h2 id="hCadastro">Cadastra Cliente</h2>
+<h2 id="hBusca">Busca Cliente</h2>
 
     <form id="formulario">
         <fieldset>
@@ -22,6 +21,8 @@
         </fieldset>
     </form>
 
+    <h2 id="hCadastro">Cadastra Cliente</h2>
+
     <form id="cadastro">
         <fieldset>
             <label>Nome: </label><br>
@@ -30,6 +31,16 @@
             <input type="email" id="fmailId" name="fmail" placeholder="E-mail..."><br><br>
             <input type="button" value="Cadastrar" id="buttonCadastro" onclick="cadastrarCliente()"><br><br>
             <span id="resposta_span_id2"></span>
+        </fieldset>
+    </form>
+
+    <h2 id="hRemove">Remove Cliente</h2>
+    <form id="remover">
+        <fieldset>
+            <label>Nome: </label><br>
+            <input type="text" id="fnameIdRemover" name="fnameRemover" placeholder="Nome..."><br><br>
+            <input type="button" value="Remover" id="buttonRemover" onclick="removerCliente()"><br><br>
+            <span id="resposta_span_id3"></span>
         </fieldset>
     </form>
 

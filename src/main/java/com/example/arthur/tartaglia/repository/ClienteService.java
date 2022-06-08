@@ -1,10 +1,11 @@
+//Pacote
 package com.example.arthur.tartaglia.repository;
 
+//Importações
 import com.example.arthur.tartaglia.model.Cliente;
-import org.springframework.http.ResponseEntity;
-
 import java.util.List;
 
+//Interface
 public interface ClienteService {
     List<Cliente> getAllCliente();
     List<Cliente> getClienteByNome(String nome);

@@ -23,7 +23,7 @@ public class HelloController {
 
         //Verifica se o input está vazio
         if (Objects.equals(nome,"")) {
-            return "Preencha todos os campos.";
+            return "field";
         }
 
         //Declaração do JSON que será retornado ao front
@@ -31,7 +31,7 @@ public class HelloController {
 
         //Verifica se foi encontrado mais de um cliente
         if (clienteService.getClienteByNome(nome).size() > 1 || clienteService.getClienteByEmail(nome).size() > 1) {
-            return "Mais de um cliente encontrado. Faça uma busca diferente.";
+            return "multiple";
         }
 
         //Declaração da lista de clientes encontrados na database, inicialmente buscando pelo nome
@@ -60,7 +60,7 @@ public class HelloController {
 
         //Verifica se os campos a serem cadastrados estão vazios
         if (Objects.equals(fname, "") || Objects.equals(fmail,"")) {
-            return "Preencha todos os campos.";
+            return "field";
         }
 
         //Declaração do objeto Cliente a ser cadastrado
@@ -68,35 +68,46 @@ public class HelloController {
 
         //Verifica se o nome ou e-mail do cliente a ser cadastrado já existe na database
         if (clienteService.getClienteByNome(clienteCadastro.getNome()).size() >= 1) {
-            return "Nome já cadastrado.";
+            return "foundName";
         } else if (clienteService.getClienteByEmail(clienteCadastro.getEmail()).size() >= 1) {
-            return "E-mail já cadastrado.";
+            return "foundMail";
         }
 
         //Cadastra o cliente na database
         clienteService.cadastraCliente(clienteCadastro);
-        return "Cliente cadastrado com sucesso!";
+        return "sucess";
     }
 
     //Função que remove um cliente da database
     @GetMapping("/helloRemover")
     public String remover(@RequestParam String fname) {
+
+        //Verifica se todos os campos foram preenchidos
+        if (Objects.equals(fname, "")) {
+            return "field";
+        }
+
         //Verifica se o nome do cliente está na database
         if (!clienteService.getClienteByNome(fname).isEmpty()) {
 
             //Remove o cliente da database
             clienteService.removeCliente(fname);
-            return "Cliente removido com sucesso.";
+            return "success";
         }
 
         //Caso o cliente não esteja na database, retorna a mensagem
-        return "Cliente não encontrado.";
+        return "notFound";
     }
 
     //Função que altera o e-mail de um cliente com base no seu nome
     @GetMapping("/helloAlterar")
     public String altera(@RequestParam String fname,
                          @RequestParam String fmail) {
+
+        //Verifica se todos os campos foram preenchidos
+        if (Objects.equals(fname, "") || Objects.equals(fmail, "")) {
+            return "field";
+        }
 
         //Verifica se o nome do cliente a ser alterado existe na database
         if (!clienteService.getClienteByNome(fname).isEmpty()){
@@ -106,6 +117,6 @@ public class HelloController {
         }
 
         //Caso o cliente não seja encontrado na database, retorna a mensagem
-        return "Cliente não encontrado.";
+        return "notFound";
     }
 }

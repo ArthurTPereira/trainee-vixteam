@@ -3,13 +3,15 @@ function buscarCliente() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById("resposta_span_id").textContent = this.responseText;
-    }
-
-    if (this.responseText == "null") {
-
-    } else {
-
+        if(this.responseText == "null") {
+            document.getElementById("resposta_span_id").textContent = "Cliente n\u00e3o encontrado.";
+        } else if (this.responseText == "field") {
+            document.getElementById("resposta_span_id").textContent = "Preencha todos os campos.";
+        } else if (this.responseText == "multiple") {
+            document.getElementById("resposta_span_id").textContent = "Mais de um cliente encontrado. Faça uma busca diferente.";
+        } else {
+            document.getElementById("resposta_span_id").textContent = this.responseText;
+        }
     }
 
     xhttp.open("GET", "/helloBuscar?fname="+nome);
@@ -22,7 +24,15 @@ function cadastrarCliente() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById("resposta_span_id2").textContent = this.responseText;
+        if (this.responseText == "field") {
+            document.getElementById("resposta_span_id2").textContent = "Preencha todos os campos.";
+        } else if (this.responseText == "foundName") {
+            document.getElementById("resposta_span_id2").textContent = "Cliente j\u00e1 cadastrado.";
+        } else if (this.responseText == "foundMail") {
+            document.getElementById("resposta_span_id2").textContent = "E-mail j\u00e1 cadastrado.";
+        } else {
+            document.getElementById("resposta_span_id2").textContent = "Cliente cadastrado com sucesso.";
+        }
     }
 
     xhttp.open("GET", "/helloCadastrar?fname="+nome+"&fmail="+mail);
@@ -35,7 +45,13 @@ function removerCliente() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById("resposta_span_id3").textContent = this.responseText;
+        if (this.responseText == "success") {
+            document.getElementById("resposta_span_id3").textContent = "Cliente removido com sucesso.";
+        } else if (this.responseText == "field") {
+            document.getElementById("resposta_span_id3").textContent = "Preencha todos os campos.";
+        } else {
+            document.getElementById("resposta_span_id3").textContent = "Cliente n\u00e3o encontrado.";
+        }
     }
 
     xhttp.open("GET", "/helloRemover?fname="+nome);
@@ -48,7 +64,14 @@ function alterarCliente() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById("resposta_span_id4").textContent = this.responseText;
+        if (this.responseText == "notFound") {
+            document.getElementById("resposta_span_id4").textContent = "Cliente n\u00e3o encontrado.";
+        } else if (this.responseText == "field") {
+            document.getElementById("resposta_span_id4").textContent = "Preencha todos os campos.";
+        } else {
+            document.getElementById("resposta_span_id4").textContent = this.responseText;
+        }
+
     }
 
     xhttp.open("GET", "/helloAlterar?fname="+nome+"&fmail="+mail);

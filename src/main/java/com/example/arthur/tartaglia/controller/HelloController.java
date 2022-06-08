@@ -4,10 +4,7 @@ import com.example.arthur.tartaglia.repository.ClienteServiceImp;
 import com.example.arthur.tartaglia.model.Cliente;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,12 +17,24 @@ public class HelloController {
     @GetMapping("/helloBuscar")
     public String buscar(@RequestParam(name = "fname") String nome) {
 
-        List<Cliente> clientesEncontrados = clienteService.getClienteByNome(nome);
+        if (Objects.equals(nome,"")) {
+            return "Preencha todos os campos.";
+        }
 
         JSONObject clienteJson = null;
 
-        if (!clientesEncontrados.isEmpty()) {
-            clienteJson = new JSONObject(clientesEncontrados.get(0)); // Exemplo
+        if (clienteService.getClienteByNome(nome).size() > 1 || clienteService.getClienteByEmail(nome).size() > 1) {
+            return "Mais de um cliente encontrado. Faça uma busca diferente.";
+        }
+
+        List<Cliente> clientesEncontrados = clienteService.getClienteByNome(nome);
+        if (clientesEncontrados.isEmpty()) {
+            clientesEncontrados = clienteService.getClienteByEmail(nome);
+            if (!clientesEncontrados.isEmpty()) {
+                clienteJson = new JSONObject(clientesEncontrados.get(0));
+            }
+        } else {
+            clienteJson = new JSONObject(clientesEncontrados.get(0));
         }
 
         return !clientesEncontrados.isEmpty() ? clienteJson.toString() : "null";

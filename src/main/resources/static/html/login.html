@@ -7,6 +7,7 @@
         </head>
 
         <link rel="stylesheet" href="../css/login.css">
+        <script src="../javascript/script.js"> </script>
 
         <h2>Login:</h2>
 
@@ -16,7 +17,8 @@
                 <input type="email" id="fmailId" name="fmail" placeholder="E-mail..."><br><br>
                 <label>Senha: </label><br>
                 <input type="password" id="fsenhaId" name="fsenha" placeholder="Senha..."><br><br>
-                <input type="button" value="Login" id="button"><br><br>
+                <span id="resposta_span_id"></span>
+                <input type="button" value="Login" id="button" onclick="logar()"><br><br>
             </fieldset>
         </form>
 

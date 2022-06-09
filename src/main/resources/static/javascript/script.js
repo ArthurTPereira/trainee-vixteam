@@ -77,3 +77,19 @@ function alterarCliente() {
     xhttp.open("GET", "/helloAlterar?fname="+nome+"&fmail="+mail);
     xhttp.send();
 }
+
+function logar() {
+    var email = document.getElementById("fmailId").value
+    var senha = document.getElementById("fsenhaId").value
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        if (this.responseText == "fail") {
+            document.getElementById("resposta_span_id5").textContent = "Usuário ou senha incorretos.";
+        }
+    }
+
+    xhttp.open("POST", "/logar?fmail="+email+"&fsenha="+senha);
+    xhttp.send();
+
+}

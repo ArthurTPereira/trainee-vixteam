@@ -10,7 +10,8 @@ function buscarCliente() {
         } else if (this.responseText == "multiple") {
             document.getElementById("resposta_span_id").textContent = "Mais de um cliente encontrado. Faça uma busca diferente.";
         } else {
-            document.getElementById("resposta_span_id").textContent = this.responseText;
+            var obj = JSON.parse(this.responseText);
+            document.getElementById("resposta_span_id").textContent = "Nome: " + obj.nome + "\nE-mail: " + obj.email;
         }
     }
 
@@ -84,12 +85,15 @@ function logar() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        if (this.responseText == "fail") {
-            document.getElementById("resposta_span_id5").textContent = "Usuário ou senha incorretos.";
+        if (this.responseText == "success") {
+            alert("Login realizado com sucesso!");
+            window.location.href = "/html/home.html";
+        } else {
+            document.getElementById("resposta_span_id_login").textContent = "E-mail ou senha incorretos.";
         }
     }
 
-    xhttp.open("POST", "/logar?fmail="+email+"&fsenha="+senha);
+    xhttp.open("GET", "/logar?fmail="+email+"&fsenha="+senha);
     xhttp.send();
 
 }

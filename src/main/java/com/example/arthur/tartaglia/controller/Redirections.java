@@ -13,5 +13,6 @@ public class Redirections implements WebMvcConfigurer {
 
         //Redireciona a página /hello para o hello.html
         registry.addViewController("/hello").setViewName("forward:/html/hello.html");
+        registry.addViewController("/login").setViewName("forward:/html/login.html");
     }
 }

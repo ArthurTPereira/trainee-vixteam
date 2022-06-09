@@ -2,7 +2,7 @@
 package com.example.arthur.tartaglia.controller;
 
 //Importações
-import com.example.arthur.tartaglia.repository.ClienteServiceImp;
+import com.example.arthur.tartaglia.service.ClienteServiceImp;
 import com.example.arthur.tartaglia.model.Cliente;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

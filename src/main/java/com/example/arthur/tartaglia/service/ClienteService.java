@@ -1,5 +1,5 @@
 //Pacote
-package com.example.arthur.tartaglia.repository;
+package com.example.arthur.tartaglia.service;
 
 //Importações
 import com.example.arthur.tartaglia.model.Cliente;

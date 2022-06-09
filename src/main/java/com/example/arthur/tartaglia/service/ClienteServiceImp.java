@@ -1,6 +1,7 @@
-package com.example.arthur.tartaglia.repository;
+package com.example.arthur.tartaglia.service;
 
 import com.example.arthur.tartaglia.model.Cliente;
+import com.example.arthur.tartaglia.repository.ClienteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
